@@ -23,6 +23,7 @@ router.get('/classes', async(req, res) => {
             "response":findResult
         })   
     } catch (error) {
+        console.log('Error ==>',error);
         res.send({'status':'Failure in getting the docs'})
     } finally {
         client.close();
@@ -45,6 +46,7 @@ router.get('/classes/:id', async(req, res) => {
             "response":findResult
         })   
     } catch (error) {
+        console.log('Error ==>',error);
         res.send({'status':'Failure in getting the doc'})
     } finally {
         client.close();
@@ -64,6 +66,7 @@ router.post('/classes/insert', async(req, res) => {
             "response":insertResult
         })   
     } catch (error) {
+        console.log('Error ==>',error);
         res.send({'status':'Failure in inserting the doc'})
     } finally {
         client.close();
@@ -87,6 +90,7 @@ router.put('/classes/:classId/:section', async (req, res) => {
             "response":updatedResult
         })
     } catch (error) {
+        console.log('Error ==>',error);
         res.send({'status':'Failure in updating the doc'})
     } finally {
         client.close();
@@ -108,6 +112,7 @@ router.delete('/classes/:class', async (req, res) => {
             "response":deleteResult
         })
     } catch (error) {
+        console.log('Error ==>',error);
         res.send({'status':'Failure in updating the doc'})
     } finally {
         client.close()

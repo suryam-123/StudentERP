@@ -10,4 +10,5 @@ app.use('/',classRouter);
 app.use('/',studentRouter);
 app.use('/',parentRouter);
 app.use('/',combinedApi);
+console.log('Node started');
 app.listen(4500);

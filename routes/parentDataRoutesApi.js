@@ -22,6 +22,7 @@ router.get('/parentDetails', async(req, res) => {
             "response":findResult
         })   
     } catch (error) {
+        console.log('Error in getting the doc==>',error);
         res.send({'status':'Failure in getting the docs'})
     } finally {
         client.close();
@@ -43,6 +44,7 @@ router.get('/parentDetails/:id', async(req, res) => {
             "response":findResult
         })   
     } catch (error) {
+        console.log('Error in getting the doc ==>',error);
         res.send({'status':'Failure in getting the doc'})
     } finally {
         client.close();
@@ -61,6 +63,7 @@ router.post('/parentDetails/insert', async(req, res) => {
             "response":insertResult
         })   
     } catch (error) {
+        console.log('Error in inserting the doc==>',error);
         res.send({'status':'Failure in inserting the doc'})
     } finally {
         client.close();
@@ -84,6 +87,7 @@ router.put('/parentDetails/:parentId/:parentName', async (req, res) => {
             "response":updatedResult
         })
     } catch (error) {
+        console.log('Error in updating the doc==>',error);
         res.send({'status':'Failure in updating the doc'})
     } finally {
         client.close();
@@ -95,7 +99,7 @@ router.delete('/parentDetails/:id', async (req, res) => {
     try {
         let id = req.params.id;
         await client.connect();
-        console.log('Connected successfully to server',id);
+        console.log('Connected successfully to server');
         console.log(req.url);
         const db = client.db('school_Info');
         const collection = db.collection('parentDetails');
@@ -106,7 +110,8 @@ router.delete('/parentDetails/:id', async (req, res) => {
             "response":deleteResult
         })
     } catch (error) {
-        res.send({'status':'Failure in updating the doc'})
+        console.log('Error in deleting the doc==>',error);
+        res.send({'status':'Failure in deleting the doc'})
     } finally {
         client.close()
     }

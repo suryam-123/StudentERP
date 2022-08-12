@@ -22,6 +22,7 @@ router.get('/students', async(req, res) => {
             "response":findResult
         })   
     } catch (error) {
+        console.log('Error in getting the docs==>',error);
         res.send({'status':'Failure in getting the docs'})
     } finally {
         client.close();
@@ -44,6 +45,7 @@ router.get('/students/:id', async(req, res) => {
             "response":findResult
         })   
     } catch (error) {
+        console.log('Error in getting the doc==>',error);
         res.send({'status':'Failure in getting the doc'})
     } finally {
         client.close();
@@ -63,6 +65,7 @@ router.post('/students/insert', async(req, res) => {
             "response":insertResult
         })   
     } catch (error) {
+        console.log('Error in inserting the doc==>',error);
         res.send({'status':'Failure in inserting the doc'})
     } finally {
         client.close();
@@ -86,6 +89,7 @@ router.put('/students/:studentId/:class', async (req, res) => {
             "response":updatedResult
         })
     } catch (error) {
+        console.log('Error in updating the doc==>',error);
         res.send({'status':'Failure in updating the doc'})
     } finally {
         client.close();
@@ -108,7 +112,8 @@ router.delete('/students/:id', async (req, res) => {
             "response":deleteResult
         })
     } catch (error) {
-        res.send({'status':'Failure in updating the doc'})
+        console.log('Error in deleting the doc==>',error);
+        res.send({'status':'Failure in deleting the doc'})
     } finally {
         client.close()
     }
