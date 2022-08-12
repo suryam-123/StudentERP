@@ -127,4 +127,4 @@ Response
     }
 }
 ```
-**For student and parentInfo simliar apis are used .For every description is added**
+**For student and parentInfo simliar apis are used .For every function description is added**
