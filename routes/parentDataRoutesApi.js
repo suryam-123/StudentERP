@@ -3,10 +3,11 @@ let router = express.Router();
 const {
     MongoClient
 } = require('mongodb');
-const config = require('../setup/config.json')
+const {
+    MONGO_DB_URL
+} = require('../setup/config.js')
 // Connection URL
-const url =`mongodb+srv://${config.mongoInfo['username']}:${config.mongoInfo['password']}@nodejsmongodb.1sq3z.mongodb.net/?retryWrites=true&w=majority`;
-const client = new MongoClient(url);
+const client = new MongoClient(MONGO_DB_URL);
 
 //Get all the parentData
 router.get('/parentDetails', async(req, res) => {
